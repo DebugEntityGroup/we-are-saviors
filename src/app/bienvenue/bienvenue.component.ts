@@ -11,7 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class BienvenueComponent implements OnInit {
 
   estAuth: boolean;
-  constructor(private router: Router,
+  constructor(public router: Router,
     private service: service, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {

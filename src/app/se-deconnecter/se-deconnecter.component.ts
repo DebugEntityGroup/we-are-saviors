@@ -12,7 +12,7 @@ export class SeDeconnecterComponent implements OnInit {
 
   estAuth: boolean;
   constructor(private firebaseAuth: AngularFireAuth,
-    private router: Router,
+    public router: Router,
     private service: service) { }
 
   ngOnInit() {

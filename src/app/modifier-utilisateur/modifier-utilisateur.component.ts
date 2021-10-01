@@ -19,7 +19,7 @@ export class ModifierUtilisateurComponent implements OnInit {
   constructor(private firestore: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
     private service: service,
-    private router: Router) { }
+    public router: Router) { }
 
   ngOnInit() {
     this.firebaseAuth.auth.onAuthStateChanged(

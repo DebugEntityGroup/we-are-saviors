@@ -20,7 +20,7 @@ export class ProduitsComponent implements OnInit {
   ajouter: number = -1;
   p: number = 1;
   succes: string;
-  constructor(private service: service, private router: Router) { }
+  constructor(private service: service, public router: Router) { }
 
   ngOnInit() {
     this.produitsObservable = this.service.getProduits().subscribe(data => {

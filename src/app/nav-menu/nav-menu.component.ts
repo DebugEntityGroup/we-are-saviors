@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class NavMenuComponent implements OnInit {
 
   estAuth: boolean;
-  constructor(private router: Router, private firebaseAuth: AngularFireAuth) { }
+  constructor(public router: Router, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.firebaseAuth.auth.onAuthStateChanged(

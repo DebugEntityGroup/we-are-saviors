@@ -19,7 +19,7 @@ export class SinscrireComponent implements OnInit {
   constructor(private firestore: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
     private service: service,
-    private router: Router) { }
+    public router: Router) { }
 
   resetForm(form?: NgForm) {
     if(form != null)

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ConnectezOuInscrivezVousComponent implements OnInit {
 
   estAuth: boolean;
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) { }
+  constructor(private firebaseAuth: AngularFireAuth, public router: Router) { }
 
   ngOnInit() {
     this.firebaseAuth.auth.onAuthStateChanged(

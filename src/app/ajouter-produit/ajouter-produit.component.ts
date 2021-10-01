@@ -17,7 +17,7 @@ export class AjouterProduitComponent implements OnInit {
   estAuth: boolean;
   @ViewChild('image') image: ElementRef
 
-  constructor(private service: service, private router: Router,
+  constructor(private service: service, public router: Router,
     private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {

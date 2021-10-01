@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   estAuth: boolean;
   constructor(private firebaseAuth: AngularFireAuth, private service: service,
-    private router: Router) { }
+    public router: Router) { }
 
   ngOnInit() {
     this.firebaseAuth.auth.onAuthStateChanged(
