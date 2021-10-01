@@ -16,7 +16,7 @@ export class TopMenuComponent implements OnInit {
   estOuvert: boolean = false;
   constructor(private firestore: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
-    private service: service,
+    public service: service,
     public router: Router) { }
 
   ngOnInit() {

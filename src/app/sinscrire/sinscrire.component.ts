@@ -18,7 +18,7 @@ export class SinscrireComponent implements OnInit {
   roles: string[]=['Client', 'Fournisseur'];
   constructor(private firestore: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
-    private service: service,
+    public service: service,
     public router: Router) { }
 
   resetForm(form?: NgForm) {

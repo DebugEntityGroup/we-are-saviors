@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
 
   estAuth: boolean;
-  constructor(private firebaseAuth: AngularFireAuth, private service: service,
+  constructor(private firebaseAuth: AngularFireAuth, public service: service,
     public router: Router) { }
 
   ngOnInit() {

@@ -17,7 +17,7 @@ export class ModifierProduitComponent implements OnInit {
   succes: string;
   estAuth: boolean;
   @ViewChild('image') image: ElementRef
-  constructor(private service: service, public router: Router, 
+  constructor(public service: service, public router: Router, 
     private firestore: AngularFirestore, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {

@@ -12,7 +12,7 @@ export class BienvenueComponent implements OnInit {
 
   estAuth: boolean;
   constructor(public router: Router,
-    private service: service, private firebaseAuth: AngularFireAuth) { }
+    public service: service, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.firebaseAuth.auth.onAuthStateChanged(

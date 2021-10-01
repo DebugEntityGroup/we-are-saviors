@@ -14,7 +14,7 @@ export class ListeProduitsComponent implements OnInit {
   produit: produit;
   produits: produit[];
   p: number = 1;
-  constructor(private service: service, private firebaseAuth: AngularFireAuth) { }
+  constructor(public service: service, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.service.getProduits().subscribe(

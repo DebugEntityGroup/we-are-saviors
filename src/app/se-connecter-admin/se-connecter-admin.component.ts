@@ -16,7 +16,7 @@ export class SeConnecterAdminComponent implements OnInit {
   succes: string;
   constructor(private firestore: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
-    private service: service) { }
+    public service: service) { }
 
   resetForm(form?: NgForm) {
     if (form != null)

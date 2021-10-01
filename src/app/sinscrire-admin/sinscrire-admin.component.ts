@@ -17,7 +17,7 @@ export class SinscrireAdminComponent implements OnInit {
   succes: string;
   constructor(private firestore: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
-    private service: service,
+    public service: service,
     public router: Router) { }
 
   resetForm(form?: NgForm) {

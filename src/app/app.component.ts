@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private router: Router, private firebaseAuth: AngularFireAuth) {}
+  constructor(public router: Router, private firebaseAuth: AngularFireAuth) {}
 
   estAuth: boolean;
   ngOnInit() {

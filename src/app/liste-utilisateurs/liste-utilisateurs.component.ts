@@ -15,7 +15,7 @@ export class ListeUtilisateursComponent implements OnInit {
   p: number = 1;
   utilisateur: utilisateur;
   utilisateurs: utilisateur[];
-  constructor(private service: service, private firebaseAuth: AngularFireAuth) { }
+  constructor(public service: service, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.service.getUtilisateurs().subscribe(

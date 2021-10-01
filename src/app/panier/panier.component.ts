@@ -12,7 +12,7 @@ export class PanierComponent implements OnInit {
 
   estAuth: boolean;
   paniers: panier[];
-  constructor(private service: service, private firebaseAuth: AngularFireAuth) { }
+  constructor(public service: service, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.service.getPanier().subscribe(paniers => {

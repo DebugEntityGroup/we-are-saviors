@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FournisseurComponent implements OnInit {
 
   estAuth: boolean;
-  constructor(private service: service, private firebaseAuth: AngularFireAuth) { }
+  constructor(public service: service, private firebaseAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.firebaseAuth.auth.onAuthStateChanged(
