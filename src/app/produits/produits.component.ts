@@ -20,6 +20,7 @@ export class ProduitsComponent implements OnInit {
   ajouter: number = -1;
   p: number = 1;
   succes: string;
+  rechercher: string;
   constructor(public service: service, public router: Router) { }
 
   ngOnInit() {
