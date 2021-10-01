@@ -1,0 +1,51 @@
+<div *ngIf = "estAuth">
+  <p align="center"><strong>Rechercher un Utilisateur</strong></p>
+  <div class="form-row justify-content-center">
+    <div class="col-auto">
+      <div class="row">
+        <input type="text" placeholder="Rechercher" [(ngModel)]="rechercher" />
+      </div>
+    </div>
+  </div><br>
+<div class="container">
+  <p class="text-right">
+    <button class="btn btn-primary" routerLinkActive="active" routerLink="/ajouterUtilisateur">
+      Ajouter un Utilisateur
+    </button>
+  </p>
+  <div class="card-body">
+    <div class="table-responsive">
+      <h1>Liste des Utilisateurs</h1>
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Email</th>
+          <th>Numéro du Téléphone</th>
+          <th>Role</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let utilisateur of utilisateurs|filter:rechercher |paginate: {itemsPerPage:3, currentPage: p};">
+            <td>{{utilisateur.id}}</td>
+            <td>{{utilisateur.nom}}</td>
+            <td>{{utilisateur.prenom}}</td>
+            <td>{{utilisateur.email}}</td>
+            <td>{{utilisateur.tel}}</td>
+            <td>{{utilisateur.role}}</td>
+            <td><button class="btn btn-primary"
+                        (click)="service.modifierUtilisateur(utilisateur)"
+                        routerLink="/modifierUtilisateur"
+                        routerLinkActive="active">Modifier</button>
+                <button class="btn btn-danger"
+                        (click)="service.supprimerUtilisateur(utilisateur.id)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<pagination-controls style="text-align:center;" (pageChange)="p = $event"></pagination-controls>
+</div>

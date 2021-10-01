@@ -1,0 +1,32 @@
+<div *ngIf = "estAuth">
+  <br><br><br><br>
+<div class="container">
+  <p class="text-right">
+    <button class="btn btn-primary" routerLinkActive="active" routerLink="/listeProduits">
+      Liste des Produits
+    </button>
+  </p>
+    <h2 class="text-left">Modifier le Produit</h2>
+    <form #form="ngForm" (ngSubmit)="modifierProduit(form)">
+      <input type="text" class="form-control" name="nomProduit" [(ngModel)]="service.produit.nomProduit" placeholder="Nom du Produit" required><br>
+      <input type="number" class="form-control" name="prix" [(ngModel)]="service.produit.prix" placeholder="Prix du Produit" required><br>
+      <textarea class="form-control" name="description" [(ngModel)]="service.produit.description" placeholder="Décrire le Produit..." required></textarea><br>
+      <input type="file" [(ngModel)]="service.produit.photoURL" name="image" required #image> <br><br>
+      <div class="form-group">
+        <label id="example-radio-group-label"><strong>Catégorie du Produit</strong></label>
+        <mat-radio-group ngModel name="categorie" #categorie="ngModel" type="radio" class="form-control form-control-user"
+          required>
+          <mat-radio-button class="example-radio-button" *ngFor="let categorie of categories" [value]="categorie">
+            {{categorie}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div class="alert alert-danger" *ngIf="categorie.errors && categorie.errors.required && categorie.touched">
+          Catégorie requise.
+        </div>
+      </div>      
+      <input type="submit" value="Modifier" class="btn btn-primary" [disabled]="form.invalid"> <br><br>
+    </form>
+</div>
+</div>
+<p class="text-success">{{succes}}</p>
+

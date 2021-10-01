@@ -1,0 +1,8 @@
+<section id="intro"><br><br>
+  <router-outlet *ngIf = "router.url === '/seconnecter'"></router-outlet>
+  <router-outlet *ngIf="router.url === '/sinscrire'"></router-outlet>
+  <router-outlet *ngIf="router.url === '/seconnecterAdmin'"></router-outlet>
+  <router-outlet *ngIf="router.url === '/sinscrireAdmin'"></router-outlet>
+  <app-bienvenue></app-bienvenue>
+  <br>
+</section>

@@ -1,0 +1,87 @@
+<nav id="nav-menu-container">
+<ul class="nav-menu">
+  <li class="menu-active"><a routerLink = "/" *ngIf = "router.url === '/'">Accueil</a></li>
+  <li><a routerLink="/" *ngIf="router.url === '/seconnecter'">Accueil</a></li>
+  <li><a routerLink="/" *ngIf="router.url === '/sinscrire'">Accueil</a></li>
+  <li><a routerLink="/client" *ngIf="router.url === '/panier'"
+    style = "color: #01004e; text-decoration: none;">Accueil</a></li>
+  <li class="menu-active"><a routerLink="/fournisseur" *ngIf = "router.url === '/fournisseur' && estAuth">Accueil</a></li>
+  <li class="menu-active"><a routerLink="/client" *ngIf = "router.url === '/client' && estAuth">Accueil</a></li>
+  <li><a routerLink="/seconnecter" *ngIf = "!estAuth && router.url === '/'">Se Connecter</a></li>
+  <li><a routerLink="/seconnecter" *ngIf="!estAuth && router.url === '/sinscrire'">Se Connecter</a></li>
+  <li class="menu-active"><a routerLink="/seconnecter" *ngIf="!estAuth
+    && router.url === '/seconnecter'">Se Connecter</a></li>
+  <li class="menu-active"><a routerLink="/seconnecterAdmin" *ngIf="!estAuth
+      && router.url === '/seconnecterAdmin'">Se Connecter</a></li>
+  <li><a routerLink="/seconnecterAdmin" *ngIf="!estAuth
+        && router.url === '/sinscrireAdmin'">Se Connecter</a></li>
+  <li><a routerLink="/sinscrire" *ngIf = "!estAuth && router.url === '/'">S'inscrire</a></li>
+  <li class="menu-active"><a routerLink="/sinscrire" *ngIf="!estAuth
+    && router.url === '/sinscrire'">S'inscrire</a></li>
+  <li class="menu-active"><a routerLink="/sinscrireAdmin" *ngIf="!estAuth
+      && router.url === '/sinscrireAdmin'">S'inscrire</a></li>
+  <li><a routerLink="/sinscrireAdmin" *ngIf="!estAuth
+      && router.url === '/seconnecterAdmin'">S'inscrire</a></li>
+  <li><a routerLink="/sinscrire" *ngIf="!estAuth
+      && router.url === '/seconnecter'">S'inscrire</a></li>
+     <li>
+    <a class="about-btn scrollto" *ngIf="estAuth && router.url === '/client'" routerLink="/client" routerLinkActive="active">
+      Mon Compte
+    </a>
+    </li>
+    <li>
+      <a class="about-btn scrollto" *ngIf="estAuth && router.url === '/client'" routerLink="/client"
+        routerLinkActive="active">
+        Mes Commandes
+      </a>
+    </li>
+    <li>
+      <a class="about-btn scrollto" *ngIf="estAuth && router.url === '/panier'" routerLink="/client"
+        routerLinkActive="active" style = "color: #01004e; text-decoration: none;">
+        Mon Compte
+      </a>
+    </li>
+    <li>
+      <a class="about-btn scrollto" *ngIf="estAuth && router.url === '/panier'" routerLink="/client"
+        routerLinkActive="active" style="color: #01004e; text-decoration: none;">
+        Mes Commandes
+      </a>
+    </li>
+      <li>
+        <a routerLink="/fournisseur" *ngIf="estAuth && router.url === '/fournisseur'">Mon Compte</a>
+      </li>
+      <li>
+        <a routerLink="/ajouterProduit" *ngIf="estAuth && router.url === '/fournisseur'">Ajouter un Nouveau Produit</a>
+        <a routerLink="/ajouterProduit" *ngIf="estAuth && router.url === '/ajouterProduit'"
+        style = "color: #01004e; text-decoration: none;">Ajouter un Nouveau Produit</a>
+        <a routerLink="/ajouterProduit" *ngIf="estAuth && router.url === '/modifierProduit'"
+        style = "color: #01004e; text-decoration: none;">Ajouter un Nouveau Produit</a>
+        <a routerLink="/ajouterProduit" *ngIf="estAuth && router.url === '/listeProduits'"
+        style = "color: #01004e; text-decoration: none;">Ajouter un Nouveau Produit</a>
+      </li>
+      <li>
+        <a routerLink="/listeProduits" *ngIf="estAuth && router.url === '/fournisseur'">Liste des Produits</a>
+        <a routerLink="/listeProduits" *ngIf="estAuth && router.url === '/ajouterProduit'"
+        style = "color: #01004e; text-decoration: none;">Liste des Produits</a>
+        <a routerLink="/listeProduits" *ngIf="estAuth && router.url === '/modifierProduit'"
+        style = "color: #01004e; text-decoration: none;">Liste des Produits</a>
+        <a routerLink="/listeProduits" *ngIf="estAuth && router.url === '/listeProduits'"
+        style = "color: #01004e; text-decoration: none;">Liste des Produits</a>
+      </li>
+  <li><app-se-deconnecter></app-se-deconnecter></li>
+  <li class="buy-tickets">
+    <a routerLink="/panier" *ngIf="estAuth && router.url === '/client'" style = "text-decoration: none;">
+      <i class="fas fa-shopping-cart"></i><b>Panier</b>
+    </a>
+  </li>
+  <li class="buy-tickets">
+    <a routerLink="/panier" *ngIf="estAuth && router.url === '/panier'" style="text-decoration: none;">
+      <i class="fas fa-shopping-cart"></i><b>Panier</b>
+    </a>
+  </li>
+  <!--<li *ngIf="router.url === '/fournisseur/ajouterProduit'"></li>-->
+  <!--<li>-->
+    <!--<app-se-connecter></app-se-connecter>-->
+  <!--</li>-->
+</ul>
+</nav>

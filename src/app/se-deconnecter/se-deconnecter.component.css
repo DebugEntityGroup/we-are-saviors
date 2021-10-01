@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+    color: rgb(228, 231, 8);
+    font-size: 13px;
+}
+a:hover {
+    color: rgb(245, 245, 84);
+}
+button:hover {
+    background-color: #0a0796;
+}
+button {
+    border: 0px;
+    border-radius: 4px;
+}

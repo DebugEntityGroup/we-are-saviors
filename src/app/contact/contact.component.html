@@ -1,0 +1,54 @@
+  <h1> Contactez-Nous </h1>
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.message.id">
+    <div class="form-group">
+       <label><b>Je suis un:</b></label>
+       <mat-radio-group class="form-control" name="role" #role="ngModel" [(ngModel)]="service.message.role" required>
+         <mat-radio-button *ngFor="let role of roles" [value]="role">
+              {{role}}
+         </mat-radio-button>
+          </mat-radio-group>
+       <div [hidden]="role.valid || role.untouched">
+       <div *ngIf="role.errors && role.errors.required" class="validation-error" style="color:red;">
+          Champs requis.
+       </div>
+       </div>
+     </div>
+    <div class="form-group">
+      <input class="form-control" placeholder="Email" name="email" #email="ngModel"
+        [(ngModel)]="service.message.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+      <div [hidden]="email.valid || email.untouched">
+        <div *ngIf="email.errors && email.errors.required" class="validation-error" style="color: red;">
+          Email requis.
+        </div>
+        <div *ngIf="email.errors && email.errors.pattern" class="validation-error" style="color: red;">
+          Email invalide.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+       <input class="form-control" placeholder="Sujet" name="sujet" #sujet="ngModel" [(ngModel)]="service.message.sujet"
+              required>
+    <div [hidden]="sujet.valid || sujet.untouched">
+    <div *ngIf="sujet.errors && sujet.errors.required" class="validation-error" style="color: red;">
+        Sujet requis.
+    </div>
+    </div>
+    </div>
+    <div class="form-group">
+            <textarea class="form-control" name="message" #message="ngModel"
+                      [(ngModel)]="service.message.message" placeholder="Ecrivez votre Message..." 
+                      required></textarea>
+      <div [hidden]="message.valid || message.untouched">
+      <div *ngIf="message.errors && message.errors.required" class="validation-error" style="color: red;">
+        Champs Message requis.
+      </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid"><b>Envoyer</b></button>
+    </div>
+  </form>
+  <p class="text-danger">{{erreur}}</p>
+  <p class="text-success">{{succes}}</p>
+

@@ -1,0 +1,36 @@
+<div *ngIf="estAuth">
+  <div class="form-row justify-content-center">
+    <div class="col-auto">
+      <div class="row">
+        <input type="text" placeholder="Rechercher un Produit" [(ngModel)]="rechercher" />
+      </div>
+    </div>
+  </div><br>
+  <div class="container">
+    <div class="card-body">
+      <div class="table-responsive">
+        <h1>Liste des Produits</h1><br>
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Description</th>
+            <th>Catégorie</th>
+            <th>Image</th>
+            <th>Action</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let produit of produits|filter:rechercher |paginate: {itemsPerPage:3, currentPage: p};">
+              <td>{{produit.nomProduit}}</td>
+              <td>{{produit.prix}} TND</td>
+              <td>{{produit.description}}</td>
+              <td>{{produit.categorie}}</td>
+              <td><img [src]="produit.photoURL" class="card-img-top"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <pagination-controls style="text-align:center;" (pageChange)="p = $event"></pagination-controls>
+</div>

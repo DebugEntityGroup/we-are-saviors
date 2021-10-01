@@ -1,0 +1,54 @@
+<br>
+<div *ngIf = "!estAuth">
+<div class="container">
+<div class="card o-hidden border-0 shadow-lg my-5">
+<div class="card-body p-0">
+<div class="row">
+  <img src="../../assets/img/posteGrandLogo.jpg">
+<div class="col-lg-7">
+<div class="p-5">
+<div class="text-center">
+  <h4 class="h4 text-gray-900 mb-4">Se Connecter</h4>
+</div>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.utilisateur.id">
+  <div class="form-group">
+    <input class="form-control" placeholder="Adresse Email" name="email" #email="ngModel" [(ngModel)]="service.utilisateur.email"
+      pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+    <div [hidden]="email.valid || email.untouched">
+      <div *ngIf="email.errors && email.errors.required" class="validation-error" style="color: red;">
+        Email requis.
+      </div>
+      <div *ngIf="email.errors && email.errors.pattern" class="validation-error" style="color: red;">
+        Email invalide.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Mot de Passe" minlength="6" type="password" name="motDePasse"
+      #motDePasse="ngModel" [(ngModel)]="service.utilisateur.motDePasse" required>
+    <div [hidden]="motDePasse.valid || motDePasse.untouched">
+      <div *ngIf="motDePasse.errors && motDePasse.errors.required" class="validation-error" style="color: red;">
+        Mot de Passe requis.
+      </div>
+      <div *ngIf="motDePasse.errors && motDePasse.errors.minlength" class="validation-error" style="color: red;">
+        Le Mot de Passe doit avoir au minimum 6 caractères.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid"><b>Se Connecter</b></button>
+  </div>
+    <div class="form-group">
+      <h4>Vous n'avez pas de Compte? <br><a routerLink="/sinscrire">Inscrivez-vous</a></h4>
+    </div>
+</form>
+<p class="text-danger">{{erreur}}</p>
+<p class="text-success">{{succes}}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

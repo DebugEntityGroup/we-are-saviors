@@ -1,0 +1,18 @@
+<section id="intro">
+  <div class="intro-container wow fadeIn" *ngIf = "router.url !== '/seconnecter'
+  && router.url !== '/sinscrire' && router.url !== '/seconnecterAdmin'
+  && router.url !== '/sinscrireAdmin'">
+    <h2 class="ePROD" style = "color: rgb(228, 231, 8); font-size: 200px;">
+      <b>
+      e<font style = "color: #01004e;">PRO</font>D</b>
+    </h2>
+    <h1 class="mb-4 pb-0">Plateforme de Vente<br>Pour La Poste</h1>
+    <a href="https://www.youtube.com/watch?v=tpQRPdUNluU" class="venobox play-btn mb-4" data-vbtype="video"
+      data-autoplay="true"></a>
+    <h3 style = "color: white;"><b>Vendre et Acheter sur 
+      <font style = "color: rgb(228, 231, 8);">
+    e<font style="color: #01004e;">PRO</font>D</font></b></h3>
+  </div>
+</section>
+  <br><br>
+  <router-outlet *ngIf="router.url === '/fournisseur'"></router-outlet>

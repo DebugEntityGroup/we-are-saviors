@@ -1,0 +1,41 @@
+<section id="subscribe">
+  <div class="container wow fadeInUp">
+    <div class="section-header">
+      <p>Rechercher un Produit</p>
+    </div>
+    <div class="form-row justify-content-center">
+      <div class="col-auto">
+        <div class="row">
+          <input type="text" placeholder="Rechercher" [(ngModel)]="rechercher" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section><br>
+<div class="container" align = "center">
+  <div class="body">
+    <div class="row">
+      <div class="col col-12 col-md-6 col-lg-3" *ngFor="let produit of produits|filter:rechercher |paginate: {itemsPerPage:4, currentPage: p}; index as i">
+        <div class="card" style="width: 18rem;">
+          <img [src]="produit.photoURL" class="card-img-top">
+             <div class="card-body">
+               <p style = "color: rgb(23, 105, 199);"><b>{{produit.categorie}}</b></p>
+               <h5 class="card-title">{{produit.nomProduit}}</h5>
+               <p class="card-text"><b>{{produit.prix}} TND</b></p>
+               <div class="nav-item">
+                 <button class="btn btn-primary" (click)="ajouterAuPanier(i)" 
+                 *ngIf="ajouter !== i && router.url === '/client'">
+                   Ajouter au Panier
+                 </button>
+                 <div *ngIf = "ajouter === i"> 
+                   <input type="number" class = "form-control" placeholder="Quantité" #quantite>
+                   <button class="btn btn-primary" (click)="acheter(quantite.value)">Confirmer</button>
+                 </div>
+               </div>
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <br>
+<pagination-controls style="text-align:center;" (pageChange)="p = $event"></pagination-controls>

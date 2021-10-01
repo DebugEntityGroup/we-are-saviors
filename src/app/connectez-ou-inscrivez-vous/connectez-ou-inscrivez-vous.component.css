@@ -1,0 +1,7 @@
+a {
+    text-decoration: none;
+    color: rgb(228, 231, 8);
+}
+a:hover {
+    color: yellow;
+}

@@ -1,0 +1,77 @@
+<app-admin *ngIf = "router.url === '/admin'"></app-admin>
+<app-admin *ngIf = "router.url === '/listeUtilisateurs'"></app-admin>
+<app-admin *ngIf="router.url === '/modifierUtilisateur'"></app-admin>
+<app-admin *ngIf="router.url === '/ajouterUtilisateur'"></app-admin>
+<app-admin *ngIf="router.url === '/listeProduitsAdmin'"></app-admin>
+<header id="header" *ngIf = "router.url !== '/admin'
+&& router.url !== '/listeUtilisateurs'
+&& router.url !== '/modifierUtilisateur'
+&& router.url !== '/listeProduitsAdmin'
+&& router.url !== '/ajouterUtilisateur'">
+    <div class="container" *ngIf = "router.url !== '/admin'
+    && router.url !== '/listeUtilisateurs'
+    && router.url !== '/listeProduitsAdmin'
+    && router.url !== '/modifierUtilisateur'
+    && router.url !== '/ajouterUtilisateur'">
+        <app-logo *ngIf = "router.url === '/'"></app-logo>
+        <app-logo *ngIf="router.url === '/sinscrire'"></app-logo>
+        <app-logo *ngIf="router.url === '/seconnecter'"></app-logo>
+        <app-logo-a *ngIf="router.url === '/sinscrireAdmin'"></app-logo-a>
+        <app-logo-a *ngIf="router.url === '/seconnecterAdmin'"></app-logo-a>
+        <app-logo-c *ngIf="router.url === '/panier'"></app-logo-c>
+        <app-logo-c *ngIf = "router.url === '/client'"></app-logo-c>
+        <app-logo-f *ngIf = "router.url === '/fournisseur'"></app-logo-f>
+        <app-logo-f *ngIf="router.url === '/ajouterProduit'"></app-logo-f>
+        <app-logo-f *ngIf="router.url === '/modifierProduit'"></app-logo-f>
+        <app-logo-f *ngIf="router.url === '/listeProduits'"></app-logo-f>
+        <app-nav-menu *ngIf="router.url !== '/seconnecterAdmin'
+        && router.url !== '/sinscrireAdmin'
+        && router.url !== '/admin'"></app-nav-menu>
+    </div>
+</header>
+
+<app-intro *ngIf = "router.url !== '/ajouterProduit'
+&& router.url !== '/modifierProduit' 
+&& router.url !== '/listeProduits'
+&& router.url !== '/listeProduitsAdmin'
+&& router.url !== '/panier'
+&& router.url !== '/admin'
+&& router.url !== '/listeUtilisateurs'
+&& router.url !== '/modifierUtilisateur'
+&& router.url !== '/ajouterUtilisateur'"></app-intro>
+
+<main id="apropos" *ngIf="router.url !== '/seconnecter' 
+&& router.url !== '/sinscrire' 
+&& router.url !== '/seconnecterAdmin'
+&& router.url !== '/sinscrireAdmin'
+&& router.url !== '/ajouterProduit'
+&& router.url !== '/modifierProduit'
+&& router.url !== '/listeProduits'
+&& router.url !== '/listeProduitsAdmin'
+&& router.url !== '/panier'
+&& router.url !== '/admin'
+&& router.url !== '/listeUtilisateurs'
+&& router.url !== '/modifierUtilisateur'
+&& router.url !== '/ajouterUtilisateur'">
+    <app-a-propos-de-nous></app-a-propos-de-nous>
+    <app-nos-produits></app-nos-produits>
+    <app-faq></app-faq>
+    <app-contactez-nous></app-contactez-nous>
+    <app-newsletter></app-newsletter>
+</main>
+
+<router-outlet *ngIf="router.url === '/ajouterProduit'"></router-outlet>
+<router-outlet *ngIf="router.url === '/modifierProduit'"></router-outlet>
+<router-outlet *ngIf="router.url === '/listeProduits'"></router-outlet>
+<router-outlet *ngIf="router.url === '/panier'"></router-outlet>
+
+<app-pied-de-page *ngIf = "router.url !== '/admin'
+&& router.url !== '/listeUtilisateurs'
+&& router.url !== '/modifierUtilisateur'
+&& router.url !== '/ajouterUtilisateur'
+&& router.url !== '/listeProduitsAdmin'"></app-pied-de-page>
+<app-retour-vers-le-haut *ngIf = "router.url !== '/admin'
+&& router.url !== '/listeUtilisateurs'
+&& router.url !== '/modifierUtilisateur'
+&& router.url !== '/ajouterUtilisateur'
+&& router.url !== '/listeProduitsAdmin'"></app-retour-vers-le-haut>

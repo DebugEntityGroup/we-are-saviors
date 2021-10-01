@@ -1,0 +1,92 @@
+<div *ngIf = "estAuth">
+<p class="text-right">
+  <button class="btn btn-primary" routerLinkActive="active" routerLink="/listeUtilisateurs">
+    Liste des Utilisateurs
+  </button>
+</p>
+<h1> Ajouter un Nouveau Utilisateur </h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.utilisateur.id">
+  <div class="form-group">
+    <input class="form-control" placeholder="Nom" name="nom" #nom="ngModel" [(ngModel)]="service.utilisateur.nom"
+      required>
+    <div *ngIf="nom.invalid && nom.touched" class="validation-error" style="color: red;">
+      Nom requis.
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Prenom" name="prenom" #prenom="ngModel"
+      [(ngModel)]="service.utilisateur.prenom" required>
+    <div *ngIf="prenom.invalid && prenom.touched" class="validation-error" style="color: red;">
+      Prenom requis.
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Email" name="email" #email="ngModel"
+      [(ngModel)]="service.utilisateur.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+    <div [hidden]="email.valid || email.untouched">
+      <div *ngIf="email.errors && email.errors.required" class="validation-error" style="color: red;">
+        Email requis.
+      </div>
+      <div *ngIf="email.errors && email.errors.pattern" class="validation-error" style="color: red;">
+        Email invalide.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Mot de Passe" minlength="6" type="password" name="motDePasse"
+      #motDePasse="ngModel" [(ngModel)]="service.utilisateur.motDePasse" required>
+    <div [hidden]="motDePasse.valid || motDePasse.untouched">
+      <div *ngIf="motDePasse.errors && motDePasse.errors.required" class="validation-error" style="color: red;">
+        Mot de Passe requis.
+      </div>
+      <div *ngIf="motDePasse.errors && motDePasse.errors.minlength" class="validation-error" style="color: red;">
+        Le Mot de Passe doit avoir au minimum 6 caractères.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Confirmer Mot de Passe" minlength="6" name="confirmerMotDePasse"
+      #confirmerMotDePasse="ngModel" type="password" [(ngModel)]="service.utilisateur.confirmerMotDePasse" required>
+    <div [hidden]="confirmerMotDePasse.valid || confirmerMotDePasse.untouched">
+      <div *ngIf="confirmerMotDePasse.errors && confirmerMotDePasse.errors.required" class="validation-error"
+        style="color: red;">
+        Confirmer Mot de Passe requis.
+      </div>
+      <div *ngIf="motDePasse.errors && motDePasse.errors.minlength" class="validation-error" style="color: red;">
+        Le Mot de Passe doit avoir au minimum 6 caractères.
+      </div>
+    </div>
+    <div *ngIf="motDePasse.value !== confirmerMotDePasse.value && confirmerMotDePasse.touched" class="validation-error"
+      style="color: red;">
+      Les deux Mots de Passe ne sont pas identiques.
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="number" placeholder="Numéro du Téléphone" length="8" name="tel" #tel="ngModel"
+      [(ngModel)]="service.utilisateur.tel" required>
+    <div [hidden]="tel.valid || tel.untouched">
+      <div *ngIf="tel.errors && tel.errors.required" class="validation-error" style="color: red;">
+        Numéro du Téléphone requis.
+      </div>
+      <div *ngIf="tel.errors && tel.errors.length" class="validation-error" style="color: red;">
+        Le Numéro du Téléphone doit avoir 8 chiffres.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label><strong>Ajouter l'Utilisateur en tant que:</strong></label>
+    <mat-radio-group class="form-control" name="role" #role="ngModel" [(ngModel)]="service.utilisateur.role" required>
+      <mat-radio-button *ngFor="let role of roles" [value]="role">
+        {{role}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid"><b>Ajouter</b></button>
+  </div>
+</form>
+<p class="text-danger">{{erreur}}</p>
+<p class="text-success">{{succes}}</p>
+</div>
+
